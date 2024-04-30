@@ -1,5 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:get/get_core/src/get_main.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:simple_circular_progress_bar/simple_circular_progress_bar.dart';
+import 'package:tiktok_clone/authentication/registration_screen.dart';
 import 'package:tiktok_clone/widgets/input_text_widget.dart';
 
 class LoginScreen extends StatefulWidget {
@@ -101,8 +105,16 @@ class _LoginScreenState extends State<LoginScreen> {
                     ),
                   )
                 ],
-              ):Container(
-
+              ):const SimpleCircularProgressBar(
+                progressColors: [
+                  Colors.green,
+                  Colors.blue,
+                  Colors.red,
+                  Colors.amber,
+                  Colors.blueAccent
+                ],
+                backColor: Colors.white30,
+                animationDuration: 30,
               ),
                Row(
                 mainAxisAlignment: MainAxisAlignment.center,
@@ -114,7 +126,7 @@ class _LoginScreenState extends State<LoginScreen> {
                   InkWell(
                     onTap: ()
                     {
-
+                    Get.to(RegistrationScreen());
                     },
                     child: const Text("SignUp Now",style: TextStyle(
                       color: Colors.white,
